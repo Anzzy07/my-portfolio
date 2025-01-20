@@ -14,12 +14,12 @@ export const links = [
     hash: "#about",
   },
   {
-    name: "Projects",
-    hash: "#projects",
-  },
-  {
     name: "Skills",
     hash: "#skills",
+  },
+  {
+    name: "Projects",
+    hash: "#projects",
   },
   {
     name: "Contact",
@@ -31,8 +31,14 @@ export const projectsData = [
   {
     title: "Khojkhaz Real-Estate App",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
+      "I worked as a full-stack developer on my Final Year Project: a Real Estate App featuring CRUD functionality, search, maps, and a chat feature.",
+    tags: [
+      "React Native (Expo)",
+      "TypeScript",
+      "Golang",
+      "AWS S3",
+      "PostgreSQL",
+    ],
     imageUrl: Khojkhaz,
     link: "https://github.com/Anzzy07/khojkhaz-server",
     githubLink: "https://github.com/Anzzy07/KhojkhazApp",
@@ -40,16 +46,21 @@ export const projectsData = [
   {
     title: "Stocks App",
     description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
+      "A React Native app showcasing Fortune 500 company stocks, featuring graphs, search functionality, and options to like or remove favorite stocks.",
+    tags: [
+      "React Native",
+      "React Native Paper",
+      "React Animation",
+      "Context API",
+    ],
     imageUrl: Stocks,
     githubLink: "https://github.com/Anzzy07/stocks-app",
   },
   {
     title: "Movie-Rating",
     description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
+      "A web app to browse movies and TV shows with full details, allowing guest login and the ability to rate them.",
+    tags: ["React", "TypeScript", "Context API", "Sementic UI", "React Query"],
     imageUrl: MovieRating,
     link: "https://ratingmovies10.netlify.app/",
     githubLink: "https://github.com/Anzzy07/rating-movie",
@@ -57,8 +68,8 @@ export const projectsData = [
   {
     title: "Hanger-Clothing",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
+      "Developed a Ecommerce with user authentication, shopping cart functionality, and a checkout page.",
+    tags: ["React", "SCSS & Styled-Component", "Context API", "Firebase"],
     imageUrl: Ecommerce,
     link: "https://hanger-clo.netlify.app/",
     githubLink: "https://github.com/Anzzy07/hanger-clo",
