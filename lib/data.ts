@@ -2,6 +2,7 @@ import Khojkhaz from "@/public/3.png";
 import Ecommerce from "@/public/1.png";
 import Stocks from "@/public/2.png";
 import MovieRating from "@/public/movierating.png";
+import { link } from "fs";
 
 export const links = [
   {
@@ -33,6 +34,8 @@ export const projectsData = [
       "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
     tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
     imageUrl: Khojkhaz,
+    link: "https://github.com/Anzzy07/khojkhaz-server",
+    githubLink: "https://github.com/Anzzy07/KhojkhazApp",
   },
   {
     title: "Stocks App",
@@ -40,13 +43,7 @@ export const projectsData = [
       "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
     tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
     imageUrl: Stocks,
-  },
-  {
-    title: "Hanger-Clothing",
-    description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    imageUrl: Ecommerce,
+    githubLink: "https://github.com/Anzzy07/stocks-app",
   },
   {
     title: "Movie-Rating",
@@ -54,6 +51,17 @@ export const projectsData = [
       "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
     tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
     imageUrl: MovieRating,
+    link: "https://ratingmovies10.netlify.app/",
+    githubLink: "https://github.com/Anzzy07/rating-movie",
+  },
+  {
+    title: "Hanger-Clothing",
+    description:
+      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
+    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
+    imageUrl: Ecommerce,
+    link: "https://hanger-clo.netlify.app/",
+    githubLink: "https://github.com/Anzzy07/hanger-clo",
   },
 ] as const;
 
