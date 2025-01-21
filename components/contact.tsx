@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { FormEvent, useRef } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 
@@ -13,7 +13,7 @@ export default function Contact() {
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
