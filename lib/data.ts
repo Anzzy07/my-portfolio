@@ -2,7 +2,6 @@ import Khojkhaz from "@/public/3.png";
 import Ecommerce from "@/public/1.png";
 import Stocks from "@/public/2.png";
 import MovieRating from "@/public/movierating.png";
-import { link } from "fs";
 
 export const links = [
   {
@@ -54,6 +53,7 @@ export const projectsData = [
       "Context API",
     ],
     imageUrl: Stocks,
+    link: "https://github.com/Anzzy07/stocks-app",
     githubLink: "https://github.com/Anzzy07/stocks-app",
   },
   {
