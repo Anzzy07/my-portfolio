@@ -1,16 +1,50 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 
 import { useSectionInView } from "@/lib/hooks";
 import SectionHeading from "./section-heading";
 import SubmitButton from "./submit-button";
-import { sendEmail } from "@/action/sendEmail";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const senderEmail = formData.get("senderEmail");
+    const message = formData.get("message");
+
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        senderEmail,
+        message,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      toast.error(result.error || "Failed to send email");
+      return;
+    }
+
+    toast.success("Email sent successfully!");
+
+    if (formRef.current) {
+      formRef.current.reset();
+    }
+  };
+
   return (
     <motion.section
       id="contact"
@@ -39,17 +73,9 @@ export default function Contact() {
       </p>
 
       <form
+        ref={formRef}
         className="mt-10 flex flex-col"
-        action={async (formData) => {
-          const { error } = await sendEmail(formData);
-
-          if (error) {
-            toast.error(error);
-            return;
-          }
-
-          toast.success("Email sent successfully!");
-        }}
+        onSubmit={handleSubmit}
       >
         <input
           placeholder="Your Email...."
