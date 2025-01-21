@@ -7,7 +7,10 @@ import { FaEye, FaUnlink } from "react-icons/fa";
 
 import { projectsData } from "@/lib/data";
 
-type ProjectProps = (typeof projectsData)[number];
+type ProjectProps = (typeof projectsData)[number] & {
+  link: string;
+  githubLink: string;
+};
 
 export default function Project({
   title,
