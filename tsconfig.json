@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "next.config.ts"
+    "next.config.ts",
+    ".next/send-email.ts"
   ],
   "exclude": ["node_modules"]
 }

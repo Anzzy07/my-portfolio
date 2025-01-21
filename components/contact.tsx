@@ -1,47 +1,35 @@
 "use client";
 
-import React, { FormEvent, useRef } from "react";
-import { motion } from "framer-motion";
-import toast from "react-hot-toast";
-
-import { useSectionInView } from "@/lib/hooks";
+import React from "react";
 import SectionHeading from "./section-heading";
-import SubmitButton from "./submit-button";
+import { motion } from "framer-motion";
+import { useSectionInView } from "@/lib/hooks";
+import SubmitBtn from "./submit-button";
+import toast from "react-hot-toast";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
 
-  const formRef = useRef<HTMLFormElement>(null);
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-    const senderEmail = formData.get("senderEmail");
-    const message = formData.get("message");
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
 
-    const response = await fetch("/api/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        senderEmail,
-        message,
-      }),
-    });
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+      });
 
-    const result = await response.json();
-
-    if (!response.ok) {
-      toast.error(result.error || "Failed to send email");
-      return;
-    }
-
-    toast.success("Email sent successfully!");
-
-    if (formRef.current) {
-      formRef.current.reset();
+      if (response.ok) {
+        toast.success("Email sent successfully!");
+        form.reset();
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again.");
     }
   };
 
@@ -63,36 +51,38 @@ export default function Contact() {
         once: true,
       }}
     >
-      <SectionHeading>Contact Me</SectionHeading>
-      <p className="text-gray-700 -mt-6 ">
-        You can shoot me directly at{" "}
-        <a className="underline" href="mailto:anzel.acharya307@outlook.com">
-          anzel.acharya307@outlook.com
+      <SectionHeading>Contact me</SectionHeading>
+
+      <p className="text-gray-700 -mt-">
+        Please contact me directly at{" "}
+        <a className="underline" href="mailto:anzel.acharya307@gmail.com">
+          anzel.acharya307@gmail.com
         </a>{" "}
         or through this form.
       </p>
 
       <form
-        ref={formRef}
-        className="mt-10 flex flex-col"
-        onSubmit={handleSubmit}
+        className="mt-10 flex flex-col "
+        action="https://getform.io/f/bdrrjekb"
+        method="POST"
+        onSubmit={handleFormSubmit}
       >
         <input
-          placeholder="Your Email...."
-          name="senderEmail"
-          className="h-14 px-4 rounded-lg borderBlack transition-all"
+          className="h-14 px-4 rounded-lg borderBlack transition-all "
+          name="Sender"
           type="email"
           required
           maxLength={50}
+          placeholder="Your email"
         />
         <textarea
-          placeholder="Any Message..."
-          name="message"
+          className="h-52 my-3 rounded-lg borderBlack p-4 transition-all"
+          name="Message"
+          placeholder="Your message"
           required
           maxLength={1000}
-          className="h-52 my-3 rounded-lg borderBlack p-4 transition-all"
         />
-        <SubmitButton />
+        <SubmitBtn />
       </form>
     </motion.section>
   );
