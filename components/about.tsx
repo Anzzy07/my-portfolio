@@ -19,33 +19,31 @@ export default function About() {
     >
       <SectionHeading>About Me</SectionHeading>
       <p className="mb-3">
-        Hi, I'm Anzel Acharya. I completed my Bachelor's in{" "}
-        <span className="font-medium">Computing</span>. I decided to pursue my
-        passion for programming when I enrolled in college. I watched YouTube
-        videos and learned{" "}
-        <span className="font-medium">
-          frontend development and am currently learning full-stack web
-          development
-        </span>
-        . <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I <span className="underline">love</span> the
-        feeling of figuring out a solution to a problem. My core stack is{" "}
-        <span className="font-medium">
-          React, and soon it will include Next.js
-        </span>
-        . I am also familiar with TypeScript. I am always looking to learn new
-        technologies. I am currently seeking a{" "}
-        <span className="font-medium">full-time position</span> as a software
-        developer.
-      </p>
+  Hi, I'm Anzel Acharya based in{" "}
+  <span className="font-medium">Kathmandu, Nepal</span>. I completed my
+  Bachelor's in <span className="font-medium">Computing</span> and somehow
+  ended up deep in{" "}
+  <span className="font-medium">React Native & mobile development</span>{" "}
+  (YouTube did most of the teaching, not going to lie).{" "}
+  <span className="italic">My favorite part of programming</span> is when
+  something finally works after an hour of debugging {" "}
+  <span className="underline">that feeling never gets old</span>. My core
+  stack is{" "}
+  <span className="font-medium">
+    React Native, TypeScript, and I'm pushing into full-stack with Node/Go &
+    Next.js
+  </span>
+  . Always looking for the next thing to break and then fix.
+</p>
 
-      <p>
-        <span className="italic">When I'm not coding</span>, I enjoy watching
-        aviation videos, working out, and playing with my dog. I also enjoy{" "}
-        <span className="font-medium">learning new things</span>. I am actively
-        reading books on{" "}
-        <span className="font-medium">health and self-development</span>.
-      </p>
+<p>
+  <span className="italic">When I'm not coding</span>, I'm watching airplane
+  spotting videos, working out, or bothering my dog. I also enjoy{" "}
+  <span className="font-medium">learning new things</span> currently
+  reading up on{" "}
+  <span className="font-medium">health, and whatever
+  rabbit hole I fall into next</span>.
+</p>
     </motion.section>
   );
 }
